@@ -11,12 +11,12 @@ namespace HiddenTest
         private float _timeLeftSeconds;
         private Text timerText;
 
-        IUIManager _uiManager;
+        IGameController _gameController;
 
         [Inject]
-        void Construct(LevelSettings settings, IUIManager uiManager)
+        void Construct(LevelSettings settings, IGameController gameController)
         {
-            _uiManager = uiManager;
+            _gameController = gameController;
             _timeLeftSeconds = settings.TimerSeconds;
             gameObject.SetActive(settings.IsTimerEnabled);
         }
@@ -42,7 +42,7 @@ namespace HiddenTest
 
                 if (_timeLeftSeconds <= 0f)
                 {
-                    if (_uiManager != null) _uiManager.ShowLose();
+                    if (_gameController != null) _gameController.OnTimerElapsed();
                 }
             }
             catch (Exception ex)

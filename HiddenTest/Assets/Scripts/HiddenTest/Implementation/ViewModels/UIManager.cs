@@ -11,6 +11,7 @@ namespace HiddenTest
         private RectTransform _listContainer;
         private TimerManager _timer;
 
+        public Transform _levelObject;
         public GameObject _winPanel;
         public GameObject _losePanel;
 
@@ -24,6 +25,10 @@ namespace HiddenTest
         {
             _listContainer = GetComponentsInChildren<RectTransform>()[1];
             _timer = GetComponentInChildren<TimerManager>();
+
+            float defaultResolutionRatio = 16f / 9f;
+            float screenResolutionRatio = (float)Screen.currentResolution.width / (float)Screen.currentResolution.height;
+            _levelObject.localScale = new Vector3(screenResolutionRatio / defaultResolutionRatio, _levelObject.localScale.y, _levelObject.localScale.z);
 
             UIItems = new List<IUIItem>();  
 

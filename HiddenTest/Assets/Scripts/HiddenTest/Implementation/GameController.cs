@@ -83,5 +83,10 @@ namespace HiddenTest
             }
         }
 
+        public void OnTimerElapsed()
+        {
+            SearhingItems.Clear();
+            _uiManager.ShowLose();
+        }
     }
 }

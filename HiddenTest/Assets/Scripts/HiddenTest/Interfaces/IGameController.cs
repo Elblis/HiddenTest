@@ -19,5 +19,9 @@ namespace HiddenTest
         /// <param name="itemId"></param>
         void OnItemFound(int itemId);
 
+        /// <summary>
+        /// Событие при истечении таймера
+        /// </summary>
+        void OnTimerElapsed();
     }
 }
